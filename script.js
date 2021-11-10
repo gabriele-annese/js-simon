@@ -37,16 +37,13 @@ const timer = setTimeout(()=>{
         userArray.push(user);
     }
     
-    for (let i = 0; i < numberArray.length ; i++){
+    for (let i = 0; i < 6 ; i++){
         if(numberArray.includes(userArray[i])){
             comuni.push(userArray[i])
             numberIndovinati.innerHTML += `${comuni[i]},`;
-        }else{
-            numberSabgliati.innerHTML += `${userArray[i]},`;
         }
     }
-    console.log(comuni)
-}, 3000);
+}, 30000);
 // funzione
 function  genRandom (min, max){
     return Math.floor(Math.random()* (max-min) + min);
