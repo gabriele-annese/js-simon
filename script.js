@@ -30,12 +30,14 @@ const comuni = [];
 // fa sparire numeri
 const timer = setTimeout(()=>{
     number.innerHTML = "";
-    
-    for (let i = 0; i < 5; i++){
+    while(userArray.length != 5){
         // cheidiamo per 5 volte un numero
         const user =parseInt(prompt("inserisci  i numeri che hai visualizzato prima"));
         // inseriamo numeri messi da user in un array
         userArray.push(user);
+    }
+    
+    for (let i = 0; i < numberArray.length ; i++){
         if(numberArray.includes(userArray[i])){
             comuni.push(userArray[i])
             numberIndovinati.innerHTML += `${comuni[i]},`;
@@ -44,7 +46,7 @@ const timer = setTimeout(()=>{
         }
     }
     console.log(comuni)
-}, 300);
+}, 3000);
 // funzione
 function  genRandom (min, max){
     return Math.floor(Math.random()* (max-min) + min);
