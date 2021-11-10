@@ -10,15 +10,43 @@ Consigli del giorno:
 
 // ref
 const number = document.querySelector(".display");
+const numberCorrect = document.querySelector("#numbercomuni");
+const numberIndovinati = document.querySelector("#numeriIndovinati");
+const numberSabgliati = document.querySelector("#numeriSabglaiti");
 // creiamo un array di 5 numeri casuali
 const numberArray = [];
 for (let i = 0; i < 5; i++){
     const numberRandom=genRandom (1, 10);
     numberArray.push(numberRandom)
 }
-console.log(numberArray)
 
+console.log(numberArray);
+// prinatere numeri
+number.innerHTML += numberArray
+// creiamo array user
+const userArray = [];
+// creiamo Array numeri comuni
+const comuni = [];
+// fa sparire numeri
+const timer = setTimeout(()=>{
+    number.innerHTML = "";
+    
+    for (let i = 0; i < 5; i++){
+        // cheidiamo per 5 volte un numero
+        const user =parseInt(prompt("inserisci  i numeri che hai visualizzato prima"));
+        // inseriamo numeri messi da user in un array
+        userArray.push(user);
+        if(numberArray.includes(userArray[i])){
+            comuni.push(userArray[i])
+            numberIndovinati.innerHTML += `${comuni[i]},`;
+        }else{
+            numberSabgliati.innerHTML += `${userArray[i]},`;
+        }
+    }
+    console.log(comuni)
+}, 300);
 // funzione
 function  genRandom (min, max){
     return Math.floor(Math.random()* (max-min) + min);
 }
+
